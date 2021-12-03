@@ -10,7 +10,7 @@ const mysqlConnection = mysql.createConnection({
   });
 
 function createTables(callback){
-  const CREATE_LOG_TABLE = 'create table if not exists logs (timestamp TIMESTAMP,method TEXT, url TEXT, status INT, referer: TEXT, user_agent TEXT, protocol TEXT, domain TEXT, origin TEXT, path TEXT, hash TEXT, query TEXT, device_type TEXT, country TEXT, clientIP TEXT, duration INT, country_name TEXT);';
+  const CREATE_LOG_TABLE = 'create table if not exists logs (timestamp TIMESTAMP,method TEXT, url TEXT, status INT, referer TEXT, user_agent TEXT, protocol TEXT, domain TEXT, origin TEXT, path TEXT, hash TEXT, query TEXT, device_type TEXT, country TEXT, clientIP TEXT, duration INT, country_name TEXT);';
 
   mysqlConnection.query(CREATE_LOG_TABLE, (err, result) => {
     if(err){
