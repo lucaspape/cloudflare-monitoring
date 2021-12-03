@@ -4,6 +4,7 @@ const cors = require('cors');
 const database = require('./database.js');
 
 const PORT = 80;
+const API_PREFIX = '/api';
 
 database.connect((err) => {
   if(err){
@@ -18,7 +19,7 @@ database.connect((err) => {
       limit: '5mb'
     }));
 
-    app.post('/insert', (req, res) => {
+    app.post(API_PREFIX + '/insert', (req, res) => {
       database.insertLog(req.body, (err, result) => {
         if(err){
           console.log(err);
