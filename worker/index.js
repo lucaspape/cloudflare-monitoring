@@ -2,12 +2,12 @@ const { URL } = require('@cliqz/url-parser');
 const { UAParser } = require('ua-parser-js');
 const { getName } = require('country-list');
 
-const config = require('./config.json')
+const config = require('./config.json');
 
 async function publish(labels){
   let res = await fetch(config.url, {
     method: 'POST',
-    body: JSON.stringify(labels),
+    body: JSON.stringify({ values: labels, key: config.api_key}),
     headers: {
       'Content-Type': 'application/json'
     }

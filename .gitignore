@@ -1,5 +1,6 @@
 worker/wrangler.toml
 worker/config.json
+cloudflare-backend/config.json
 # Logs
 logs
 *.log

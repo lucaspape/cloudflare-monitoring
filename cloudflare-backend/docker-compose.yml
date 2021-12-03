@@ -16,3 +16,5 @@ services:
     command:                 npm start
     ports:
       - "9050:80"
+    volumes:
+      - ./config.json:/app/config.json
