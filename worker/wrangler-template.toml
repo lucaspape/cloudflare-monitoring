@@ -1,0 +1,12 @@
+name = "worker"
+type = "webpack"
+
+account_id = "ACCOUNT_ID"
+workers_dev = true
+route = ""
+zone_id = "ZONE_ID"
+compatibility_date = "2021-12-03"
+
+routes = [
+    "*domain.example/*",
+]
