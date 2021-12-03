@@ -4,7 +4,7 @@ const cors = require('cors');
 const database = require('./database.js');
 
 const PORT = 80;
-const API_PREFIX = '/api';
+const API_PREFIX = '/cloudflare/api';
 
 database.connect((err) => {
   if(err){
