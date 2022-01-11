@@ -24,10 +24,12 @@ function createTables(callback){
 function insertLog(log, callback){
   let ip = log.clientIP;
 
+  let anonIp = '';
+
   if(ip.length > 15){
-    let anonIp = ip.slice(0, log.clientIP.length-16) + 'xxxxxxxxxxxxxxxx'
+    anonIp = ip.slice(0, log.clientIP.length-16) + 'xxxxxxxxxxxxxxxx'
   }else{
-    let anonIp = ip.slice(0, log.clientIP.length-3) + 'xxx'
+    anonIp = ip.slice(0, log.clientIP.length-3) + 'xxx'
   }
 
   const INSERT_LOG_QUERY = 'insert into `' + DBNAME + '`.`logs` (method, url, status, referer, user_agent, protocol, domain, origin, path, hash, query, device_type, country, clientIP, duration, country_name) values (' + mysqlConnection.escape(log.method) + ', ' + mysqlConnection.escape(log.url) + ', ' + mysqlConnection.escape(log.status) + ', ' + mysqlConnection.escape(log.referer) + ', ' + mysqlConnection.escape(log.user_agent) + ', ' + mysqlConnection.escape(log.protocol) + ', ' + mysqlConnection.escape(log.domain) + ', ' + mysqlConnection.escape(log.origin) + ', ' + mysqlConnection.escape(log.path) + ', ' + mysqlConnection.escape(log.hash) + ', ' + mysqlConnection.escape(log.query) + ', ' + mysqlConnection.escape(log.device_type) + ', ' + mysqlConnection.escape(log.country) + ', ' + mysqlConnection.escape(anonIp) + ', ' + mysqlConnection.escape(log.duration) + ', ' + mysqlConnection.escape(log.country_name) + ');';
